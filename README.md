@@ -18,7 +18,9 @@ Toda a base de dados esta armezenado em um **json** dentro da pasta **assets/dat
 
 ## Demo
 
-![home_screen](./.github/images/home.png)
+<div align="center">
+<img width="350" alt="home" src="./.github/images/home.png"/>
+</div>
 
 ## Configuração
 
