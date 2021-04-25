@@ -19,7 +19,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 65),
+        padding: const EdgeInsets.symmetric(horizontal: 60),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

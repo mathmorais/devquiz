@@ -12,51 +12,48 @@ class AppBarWidget extends PreferredSize {
 
   AppBarWidget({required this.user, required this.quizzes})
       : super(
-            preferredSize: Size.fromHeight(250),
-            child: SafeArea(
-              top: true,
-              child: Container(
-                height: 250,
-                child: Stack(
-                  children: [
-                    Container(
-                      height: 140,
-                      width: double.maxFinite,
-                      decoration: BoxDecoration(gradient: AppGradients.linear),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          children: [
-                            Text.rich(TextSpan(
-                                text: 'Olá, ',
-                                style: AppTextStyles.title,
-                                children: [
-                                  TextSpan(
-                                      text: user.userName,
-                                      style: AppTextStyles.titleBold)
-                                ])),
-                            Container(
-                                width: 58,
-                                height: 58,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: Image.network(user.userPhotoUrl,
-                                                cacheHeight: 58, cacheWidth: 58)
-                                            .image),
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: AppColors.purple, width: 2)))
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        ),
+            preferredSize: Size.fromHeight(270),
+            child: Container(
+              height: 270,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 180,
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(gradient: AppGradients.linear),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Text.rich(TextSpan(
+                              text: 'Olá, ',
+                              style: AppTextStyles.title,
+                              children: [
+                                TextSpan(
+                                    text: user.userName,
+                                    style: AppTextStyles.titleBold)
+                              ])),
+                          Container(
+                              width: 58,
+                              height: 58,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: Image.network(user.userPhotoUrl,
+                                              cacheHeight: 58, cacheWidth: 58)
+                                          .image),
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: AppColors.purple, width: 2)))
+                        ],
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       ),
                     ),
-                    Align(
-                        alignment: Alignment.bottomCenter,
-                        child: ScoreCardWidget(
-                            userScore: user.score, quizzes: quizzes))
-                  ],
-                ),
+                  ),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: ScoreCardWidget(
+                          userScore: user.score, quizzes: quizzes))
+                ],
               ),
             ));
 }
