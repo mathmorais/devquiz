@@ -16,8 +16,6 @@ O projeto **Devquiz** foi criado com o intuito de ajudar iniciantes de flutter a
 
 Toda a base de dados esta armezenado em um **json** dentro da pasta **assets/database**, lá é possivel customizar o seu usuário e adicionar a suas proprias questões/quizzes.
 
-> Essa aplicação foi realizada durante o **nlw#5** na trilha de flutter.
-
 ## Demo
 
 ![home_screen](./.github/images/home.png)
