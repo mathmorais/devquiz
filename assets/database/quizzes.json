@@ -1,155 +1,64 @@
 [
   {
-  "quizTitle": "Flutter Basics 1",
-  "quizQuestions": [
-    {
-      "questionTitle": "Test 1",
-      "questionAnswers": [
-        {
-          "answerContent": "Test answer 1",
-          "isRight": true
-        },
-        {
-          "answerContent": "Test answer 2"
-        }
-      ]
-    },
-    {
-      "questionTitle": "Test 2",
-      "questionAnswers": [
-        {
-          "answerContent": "Test 1",
-          "isRight": true
-        },
-        {
-          "answerContent": "Test 2"
-        }
-      ]
-    }
-  ],
-  "quizQuestionsAnswered": 0,
-  "quizImage": "laptop",
-  "quizDifficulty": "facil"
- },
-  {
-    "quizTitle": "Flutter Basics 2",
+    "quizTitle": "Flutter Basics 1",
     "quizQuestions": [
       {
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
+        "questionTitle": "Qual widget é usada para alinhar elementos em linha reta",
         "questionAnswers": [
           {
-            "answerContent": "Verdadeiro",
+            "answerContent": "Row()",
             "isRight": true
           },
           {
-            "answerContent": "Falso"
+            "answerContent": "Column()"
+          },
+          {
+            "answerContent": "Align()"
+          },
+          {
+            "answerContent": "Center()"
           }
         ]
       },
       {
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
+        "questionTitle": "Qual widget é usado para exibir um texto na tela",
         "questionAnswers": [
           {
-            "answerContent": "Verdadeiro",
-            "isRight": true
+            "answerContent": "Paragraph()"
           },
           {
-            "answerContent": "Falso"
+            "answerContent": "String()"
+          },
+          {
+            "answerContent": "Title()"
+          },
+          {
+            "answerContent": "Text()",
+            "isRight": true
           }
         ]
       },
       {
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
+        "questionTitle": "Qual dos seguintes codigos exibira um texto no meio da tela",
         "questionAnswers": [
           {
-            "answerContent": "Verdadeiro",
+            "answerContent": "Container(\n child: Center('Texto'))",
             "isRight": true
           },
           {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
+            "answerContent": "Center(\n child: Text('Texto'))"
           },
           {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
+            "answerContent": "Align(\n Text('Texto'))"
           },
           {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
-          },
-          {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
-          },
-          {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
-          },
-          {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
-          },
-          {
-            "answerContent": "Falso"
-          }
-        ]
-      },{
-        "questionTitle": "O Flutter utiliza o dart como sua linguagem principal?",
-        "questionAnswers": [
-          {
-            "answerContent": "Verdadeiro",
-            "isRight": true
-          },
-          {
-            "answerContent": "Falso"
+            "answerContent": "Todas acima"
           }
         ]
       }
     ],
     "quizQuestionsAnswered": 0,
     "quizImage": "blocks",
-    "quizDifficulty": "medio"
+    "quizDifficulty": "facil"
   }
 ]

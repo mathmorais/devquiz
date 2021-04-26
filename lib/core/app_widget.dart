@@ -1,4 +1,4 @@
-import 'package:devquiz/screens/splash/splash_screen.dart';
+import 'package:devquiz/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -6,7 +6,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "DevQuiz",
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

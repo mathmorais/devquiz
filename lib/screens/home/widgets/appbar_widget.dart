@@ -37,6 +37,7 @@ class AppBarWidget extends PreferredSize {
                               width: 58,
                               height: 58,
                               decoration: BoxDecoration(
+                                  color: AppColors.purple,
                                   image: DecorationImage(
                                       image: Image.network(user.userPhotoUrl,
                                               cacheHeight: 58, cacheWidth: 58)

@@ -6,14 +6,17 @@ import 'package:devquiz/screens/challenge/widgets/quiz_widget.dart';
 import 'package:devquiz/screens/result/result_screen.dart';
 import 'package:devquiz/shared/models/answer.model.dart';
 import 'package:devquiz/shared/models/question_model.dart';
+import 'package:devquiz/shared/models/user_model.dart';
 import 'package:devquiz/shared/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChallengeScreen extends StatefulWidget {
+  final UserModel user;
   final List<QuestionModel> questions;
   final String quizName;
 
-  const ChallengeScreen({required this.questions, required this.quizName});
+  const ChallengeScreen(
+      {required this.user, required this.questions, required this.quizName});
 
   @override
   _ChallengeScreenState createState() => _ChallengeScreenState();
@@ -47,12 +50,8 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
     if (isCurrentQuestionWrong) throw Error();
   }
 
-  void handleAnswerResult() {
+  void handleAnswerConfirmation() {
     final answerContent = findCorrectAnswerContent();
-    final nextQuestion = () {
-      if (challengeController.currentQuestion < widget.questions.length - 1)
-        challengeController.currentQuestion += 1;
-    };
 
     try {
       handleAnswerValidation();
@@ -60,15 +59,36 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
           context,
           MaterialPageRoute(
               builder: (ctx) => AnswerResultScreen.right(
-                  rightAnswer: answerContent, nextTapCallback: nextQuestion)));
+                  rightAnswer: answerContent,
+                  nextTapCallback: handleNextQuestion)));
       challengeController.totalCorrectQuestions += 1;
     } catch (err) {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (ctx) => AnswerResultScreen.wrong(
-                  rightAnswer: answerContent, nextTapCallback: nextQuestion)));
+                  rightAnswer: answerContent,
+                  nextTapCallback: handleNextQuestion)));
     }
+  }
+
+  void handleNextQuestion() {
+    if (challengeController.currentQuestion + 1 >= widget.questions.length) {
+      return showResultPage();
+    }
+
+    challengeController.nextQuestion();
+    quizController.clearSelectedAnswers();
+  }
+
+  void showResultPage() {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (ctx) => ResultScreen(
+                quizName: widget.quizName,
+                rightAnswers: challengeController.totalCorrectQuestions,
+                totalAnswers: widget.questions.length)));
   }
 
   @override
@@ -76,16 +96,6 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
     super.initState();
 
     challengeController.currentQuestionNotifier.addListener(() {
-      if (challengeController.currentQuestion >= widget.questions.length - 1) {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (ctx) => ResultScreen(
-                    quizName: widget.quizName,
-                    rightAnswers: challengeController.totalCorrectQuestions,
-                    totalAnswers: widget.questions.length)));
-      }
-
       setState(() {});
     });
   }
@@ -98,7 +108,7 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
         child: SafeArea(
           top: true,
           child: QuestionIndicatorWidget(
-              currentQuestion: challengeController.currentQuestion,
+              currentQuestion: challengeController.currentQuestion + 1,
               questionsLength: widget.questions.length),
         ),
       ),
@@ -113,15 +123,14 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
             children: [
               Expanded(
                   child: ButtonWidget.white(
-                      label: 'Pular',
-                      onPressed: challengeController.nextQuestion)),
+                      label: 'Pular', onPressed: handleNextQuestion)),
               Expanded(
                   child: ValueListenableBuilder<int>(
                 valueListenable: quizController.selectedAnswerIndexNotifier,
                 builder: (ctx, value, _) => ButtonWidget.green(
                     isBlocked: value < 0,
                     label: 'Confirmar',
-                    onPressed: handleAnswerResult),
+                    onPressed: handleAnswerConfirmation),
               ))
             ],
           ),

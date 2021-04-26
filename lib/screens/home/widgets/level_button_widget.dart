@@ -7,9 +7,13 @@ class LevelButtonWidget extends StatelessWidget {
   final String label;
   final Difficulty difficulty;
   final ValueChanged<Difficulty> onTap;
+  final bool isSelected;
 
   LevelButtonWidget(
-      {required this.label, required this.difficulty, required this.onTap})
+      {required this.label,
+      required this.difficulty,
+      required this.onTap,
+      required this.isSelected})
       : assert(levelButtonDifficulties.contains(label));
 
   static const Iterable<String> levelButtonDifficulties = [
@@ -54,6 +58,15 @@ class LevelButtonWidget extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 2),
           alignment: Alignment.center,
           decoration: BoxDecoration(
+              boxShadow: isSelected
+                  ? [
+                      BoxShadow(
+                          color: color,
+                          blurRadius: 2,
+                          offset: Offset.zero,
+                          spreadRadius: 5)
+                    ]
+                  : [],
               color: color,
               borderRadius: BorderRadius.circular(28),
               border: Border.all(color: borderColor, width: 1)),

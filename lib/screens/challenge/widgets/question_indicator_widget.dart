@@ -7,7 +7,7 @@ class QuestionIndicatorWidget extends StatelessWidget {
   final int currentQuestion;
   final int questionsLength;
 
-  double get currentProgress => currentQuestion / (questionsLength - 1);
+  double get currentProgress => currentQuestion / questionsLength;
 
   QuestionIndicatorWidget(
       {required this.currentQuestion, required this.questionsLength});
@@ -35,7 +35,7 @@ class QuestionIndicatorWidget extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Questão ${currentQuestion + 1}',
+                      Text('Questão $currentQuestion',
                           style: AppTextStyles.body15),
                       Text('de $questionsLength', style: AppTextStyles.body15)
                     ],

@@ -3,7 +3,7 @@ import 'dart:convert';
 class UserModel {
   final String userName;
   final String userPhotoUrl;
-  final int score;
+  int score;
 
   UserModel(
       {required this.userName, required this.userPhotoUrl, this.score = 0});

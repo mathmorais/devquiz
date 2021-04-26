@@ -11,7 +11,7 @@ class ChallengeController {
   set currentQuestion(int question) => currentQuestionNotifier.value = question;
 
   void nextQuestion() {
-    currentQuestion = currentQuestion + 1;
+    currentQuestion += 1;
   }
 
   void confirmQuestion(

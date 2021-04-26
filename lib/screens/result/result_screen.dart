@@ -1,6 +1,5 @@
 import 'package:devquiz/core/app_images.dart';
 import 'package:devquiz/core/app_text_styles.dart';
-import 'package:devquiz/screens/home/home_screen.dart';
 import 'package:devquiz/shared/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
@@ -70,10 +69,7 @@ class ResultScreen extends StatelessWidget {
                   Expanded(
                       child: ButtonWidget.tranparent(
                           label: 'Voltar ao ínicio',
-                          onPressed: () => Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (ctx) => HomeScreen()))))
+                          onPressed: () => Navigator.pop(context)))
                 ],
               ),
             ],

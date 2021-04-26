@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
     () async {
       await Future.delayed(Duration(seconds: 1));
       Navigator.pushReplacement(
-          context,MaterialPageRoute(builder: (ctx) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
     }();
 
     return Scaffold(

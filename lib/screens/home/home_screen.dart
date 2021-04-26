@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         context,
         MaterialPageRoute(
             builder: (ctx) => ChallengeScreen(
+                user: controller.user!,
                 quizName: controller.quizzes![currentIndex].quizTitle,
                 questions: controller.quizzes![currentIndex].quizQuestions)));
   }
@@ -54,6 +55,35 @@ class _HomeScreenState extends State<HomeScreen> {
     controller.stateNotifier.addListener(() => setState(() {}));
   }
 
+  List<ValueListenableBuilder> handleLoadDifficulties() {
+    return Difficulty.values.map((difficulty) {
+      String label = '';
+      switch (difficulty) {
+        case Difficulty.facil:
+          label = 'Fácil';
+          break;
+        case Difficulty.medio:
+          label = 'Médio';
+          break;
+        case Difficulty.dificil:
+          label = 'Difícil';
+          break;
+        case Difficulty.perito:
+          label = 'Perito';
+      }
+
+      return ValueListenableBuilder(
+        valueListenable: controller.selectedDifficultyNotifier,
+        builder: (ctx, value, _) => LevelButtonWidget(
+          onTap: (difficulty) => controller.selectedDifficulty = difficulty,
+          difficulty: difficulty,
+          label: label,
+          isSelected: difficulty == controller.selectedDifficulty,
+        ),
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     if (controller.stateValue == HomeState.error) {
@@ -72,32 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      LevelButtonWidget(
-                        onTap: (difficulty) =>
-                            controller.selectedDifficulty = difficulty,
-                        difficulty: Difficulty.facil,
-                        label: 'Fácil',
-                      ),
-                      LevelButtonWidget(
-                        onTap: (difficulty) =>
-                            controller.selectedDifficulty = difficulty,
-                        difficulty: Difficulty.medio,
-                        label: 'Médio',
-                      ),
-                      LevelButtonWidget(
-                        onTap: (difficulty) =>
-                            controller.selectedDifficulty = difficulty,
-                        difficulty: Difficulty.dificil,
-                        label: 'Difícil',
-                      ),
-                      LevelButtonWidget(
-                        onTap: (difficulty) =>
-                            controller.selectedDifficulty = difficulty,
-                        difficulty: Difficulty.perito,
-                        label: 'Perito',
-                      )
-                    ],
+                    children: handleLoadDifficulties(),
                   ),
                 ),
                 Expanded(
