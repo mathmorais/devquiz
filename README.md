@@ -12,7 +12,7 @@
 
 ## Sobre
 
-O projeto **Devquiz** foi criado com o intuito de ajudar iniciantes de flutter a aprenderem flutter, de modo geral o aplicativo é um quiz em que o usuario vai aumentando sua pontuação conforme a quantidade de acertos.
+O projeto **Devquiz** foi criado com o intuito de ajudar iniciantes em flutter a aprenderem flutter, de modo geral o aplicativo é um quiz em que, o usuario vai aumentando sua pontuação conforme a realização dos quizzes/desafios.
 
 Toda a base de dados esta armezenado em um **json** dentro da pasta **assets/database**, lá é possivel customizar o seu usuário e adicionar a suas proprias questões/quizzes.
 
